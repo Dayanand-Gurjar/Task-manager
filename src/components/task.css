@@ -1,0 +1,32 @@
+.icon-edit,.icon-delete{
+    cursor: pointer;
+    font-size: 25px;
+    width: 2rem;
+}
+.icon-delete{
+    color: red;
+}
+.icon-edit{
+    color:blue;
+}
+
+.task-text{
+    font-size: 1.2rem;
+    height: auto;
+    width: 100%;
+    border: none;
+    border-left: 5px solid green;
+}
+.main-task-div{
+    align-items: center;
+    justify-content:space-between;
+    border: 2px solid var(--shade4);
+    border-left: 0px;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: 0 4px 8px 0  rgba(237, 94, 17, 0.19), 0 6px 20px 0 rgba(237, 94, 17, 0.19);
+}
+
+.delete-button{
+    border: none;
+    background-color: inherit;
+}

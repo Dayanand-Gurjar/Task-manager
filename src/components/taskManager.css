@@ -1,0 +1,49 @@
+:root {
+    --shade1: #B9EDDD;
+    --shade2: #87CBB9;
+    --shade3: #569DAA;
+    --shade4: #577D86;
+  }
+
+.main-container{
+    max-width: 600px;
+    min-height: 100vh;
+    
+    margin: auto;
+    background-color: var(--shade1);
+    border: 5px solid var(--shade4);
+    border-radius: 10px;
+}
+
+.header-container{
+    height: 80px;
+    color: white;
+    text-align: center;
+    background-color: var(--shade4);
+}
+
+
+.addtask-form input,
+.addtask-form textarea{
+    width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 20px;
+      background: var(--shade2)
+}
+.add-task-button{
+    background-color: var(--shade3);
+    color: var(--shade1);
+    border-radius: 10px;
+    border-bottom: 5px solid var(--shade4);
+    background: -webkit-linear-gradient(to right,var(--shade4),var(--shade2) ,var(--shade4));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,var(--shade4),var(--shade2) ,var(--shade4)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color:var(--shade4);
+    font-weight:bold;
+}
+
+
+@media screen and (min-width:568px ){
+    
+}
