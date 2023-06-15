@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
-import axiosInstance from "../axiosInstance";
+// import axiosInstance from "../axiosInstance";
+import axios from "axios";
 import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { useFormik } from "formik";
@@ -34,7 +35,7 @@ const EditTask = ({ data }) => {
     validate,
     onSubmit: (values, { resetForm }) => {
       (async()=>{
-        await axiosInstance.put(`/tasks/${values.id}`,{
+        await axios.put(`/api/tasks/${values.id}`,{
           title:values.title,
           description:values.description,
           status:values.status
@@ -124,24 +125,12 @@ const EditTask = ({ data }) => {
   );
 };
 
-// const deleteTask=(task)=>{
-//     if(window.confirm('Are you sure to delete the task?')==true){
-//       (async ()=>{
-//          axiosInstance.delete(`/tasks/${task.id}`).then(response=>{
-//            console.log(response.data);
-//          }).catch(error=>{
-//           //alert('Some error occured : \n'+error);
-//          })
-//       })();
-//     }
-// }
-
 const deleteTask=(task)=>{
   console.log(task);
    if(window.confirm('Are you sure to delete the task?')==true){
     const DeleteTask=async (task)=>{
       console.log(task);
-      await axiosInstance.delete(`/tasks/${task._id}`).then(response=>{
+      await axios.delete(`/api/tasks/${task._id}`).then(response=>{
          console.log(response.data);
        }).catch(error=>{
         alert('Some error occured : \n'+error);
@@ -156,7 +145,7 @@ const TaskList = () => {
   const [tasks, setTasks] = useState([]);
   useEffect(()=>{
    (async()=>{
-    await axiosInstance.get('/tasks').then((response)=>{
+    await axios.get('/api/tasks').then((response)=>{
       setTasks(response.data);
    });
    })();

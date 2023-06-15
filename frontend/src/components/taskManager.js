@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axiosInstance from "../axiosInstance";
+// import axiosInstance from "../axiosInstance";
+import axios from "axios";
 import { useFormik } from "formik";
 import TaskList from "./task";
 import "./taskManager.css";
@@ -18,9 +19,7 @@ const validate = (values) => {
 };
 
 function AddTaskForm() {
-  // Pass the useFormik() hook initial form values, a validate function that will be called when
-  // form values change or fields are blurred, and a submit function that will
-  // be called when the form is submitted
+  
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -30,7 +29,7 @@ function AddTaskForm() {
     validate,
     onSubmit: (values, { resetForm }) => {
       (async()=>{
-        await axiosInstance.post('/tasks',{
+        await axios.post('/api/tasks',{
           title:values.title,
           description:values.description,
           status:values.status
@@ -46,7 +45,6 @@ function AddTaskForm() {
       onSubmit={formik.handleSubmit}
       className=" addtask-form d-flex flex-column align-items-start"
     >
-      {/* <label htmlFor="title" className=''>Title</label> */}
       <input
         className="my-2 "
         id="title"
@@ -58,7 +56,6 @@ function AddTaskForm() {
       />
       {formik.errors.title ? <div>{formik.errors.title}</div> : null}
 
-      {/* <label htmlFor="description">Description</label> */}
       <textarea
         className="my-2"
         id="description"
@@ -82,29 +79,7 @@ function AddTaskForm() {
 }
 
 const TaskManager = () => {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState();
-
-  // setTasks([{title:'title1', description:'desc1'}]);
-  const addTask = () => {
-    // if (title.trim() !== '' && desc.trim()!== '') {
-    //   setTasks([...tasks, {title,desc:desc}]);
-    //   setNewTask('');
-    // }
-  };
-
-  const deleteTask = (index) => {
-    const updatedTasks = [...tasks];
-    updatedTasks.splice(index, 1);
-    setTasks(updatedTasks);
-  };
-
-  const updateTask = (index, updatedTask) => {
-    const updatedTasks = [...tasks];
-    updatedTasks[index] = updatedTask;
-    setTasks(updatedTasks);
-  };
-
+  
   return (
     
       <div className=" main-container d-flex flex-column justify-content-around align-items-center ">
@@ -118,20 +93,6 @@ const TaskManager = () => {
 
         <div className="tasks-container mb-4 w-75">
           <TaskList/>
-        
-
-          {/* <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            <input
-              type="text"
-              value={task}
-              onChange={(e) => updateTask(index, e.target.value)}
-            />
-            <button onClick={() => deleteTask(index)}>Delete</button>
-          </li>
-        ))}
-      </ul> */}
         </div>
       </div>
   );
