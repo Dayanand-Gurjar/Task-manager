@@ -32,18 +32,48 @@
       border-radius: 20px;
       background: var(--shade2)
 }
-.add-task-button{
+.add-task-button, .submit-button{
     background-color: var(--shade3);
-    color: var(--shade1);
+    color: var(--shade4);
     border-radius: 10px;
     border-bottom: 5px solid var(--shade4);
     background: -webkit-linear-gradient(to right,var(--shade4),var(--shade2) ,var(--shade4));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right,var(--shade4),var(--shade2) ,var(--shade4)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color:var(--shade4);
     font-weight:bold;
 }
 
+.main-task-div{
+    align-items: center;
+    justify-content:space-between;
+    border: 2px solid;
+    border-left: 0px;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: 0 4px 8px 0  rgba(237, 94, 17, 0.19), 0 6px 20px 0 rgba(237, 94, 17, 0.19);
+}
 
-@media screen and (min-width:568px ){
-    
+.icon-delete{
+    color: red;
+}
+.icon-edit{
+    color:blue;
+}
+.icon-edit,.icon-delete{
+    cursor: pointer;
+    font-size: 25px;
+    width: 2rem;
+}
+
+.delete-button{
+    border: none;
+    background-color: inherit;
+    width: auto;
+    padding:0px;
+}
+
+.task-text{
+    font-size: 1.2rem;
+    height: auto;
+    width: 100%;
+    border: none;
+    border-left: 5px solid ;
 }
